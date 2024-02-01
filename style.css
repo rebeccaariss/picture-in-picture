@@ -1,8 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+
 html {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(6, 3, 36);
+}
+
+.button-container {
+  border: 2px solid rgb(88, 199, 140);
+  padding: 10px;
+  border-radius: 7px;
+  /* inset means that the shadow is on the inside, not the outside: */
+  /* values are as follows: horizontal offset, vertical offset, blur, spread (how far out the shadow spreads; negative value actually reduces spread), colour: */
+  box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.7);
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  width: 120px;
+  height: 75px;
+  font-family: Workbench, sans-serif;
+  font-size: 30px;
+  color: rgb(49, 239, 58);
+  /* values here are the same as with box-shadow (above): */
+  text-shadow: 0 2px 5px black;
+  background: linear-gradient(to top, #ecd76f, #d880d7);
+  border: 2px solid rgb(163, 222, 179);
+  border-radius: 7px;
+  box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.4), 0 12px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  /* same as button background, only we have changed to "bottom" for animation effect on hover and pink is slightly lighter: */
+  background: linear-gradient(to bottom, #ecd76f, #d694d5);
+}
+
+button:active {
+  /* when we press the button, it moves down by 3px: */
+  transform: translateY(3px);
+  /* values here are smaller to make it look like button is being pushed: */
+  box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.4), 0 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
