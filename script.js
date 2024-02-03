@@ -12,12 +12,24 @@ async function selectMediaStream() {
     videoElement.srcObject = mediaStream;
     // when the video metadata has loaded, calls function to play video:
     videoElement.onloadedmetadata = () => {
-      videoElement.onplay();
+      videoElement.play();
     }
   } catch (error) {
     console.log('error: ' + error);
   }
 }
+
+button.addEventListener('click', async () => {
+  // disable "start" button on click:
+  button.disabled = true;
+  
+  // start picture in picture:
+  // (await, meaning: don't do anything else until that happens)
+  await videoElement.requestPictureInPicture();
+
+  // reset button (only happens if we've successfully requested picture in picture):
+  button.disabled = false;
+});
 
 // On load:
 selectMediaStream();
