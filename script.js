@@ -3,10 +3,8 @@ const button = document.getElementById('button');
 
 // Prompt user to select media stream, pass to video element, then play:
 async function selectMediaStream() {
-  // Anything that needs to be resolved after we complete our call will wait 
-  // until the try has completed instead of just throwing an error:
   try {
-    // waiting to assign media stream data until user has selected which 
+    // waits to assign media stream data until user has selected which 
     // screen/window they want to share:
     const mediaStream = await navigator.mediaDevices.getDisplayMedia();
     videoElement.srcObject = mediaStream;
@@ -22,9 +20,8 @@ async function selectMediaStream() {
 button.addEventListener('click', async () => {
   // disable "start" button on click:
   button.disabled = true;
-  
+
   // start picture in picture:
-  // (await, meaning: don't do anything else until that happens)
   await videoElement.requestPictureInPicture();
 
   // reset button (only happens if we've successfully requested picture in picture):
